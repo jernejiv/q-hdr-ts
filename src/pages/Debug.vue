@@ -5,6 +5,7 @@
     <q-btn
       label="klikni"
     />
+    <q-space></q-space>
     {{ someText }}
     <q-space></q-space>
     {{ someText1 }}
@@ -21,12 +22,12 @@ export default {
   // name: 'PageName',
   // define local data to bind
   data() {
-    return { someText: 'tekst iz bla'
+    return { someText: 'tekst iz return data'
     }
   },
   // bind variable in setup
   setup() {
-    const someText1 = ref('tekst iz setup')
+    const someText1 = ref('ref bind tekst iz setup')
     const nvaLink = ref<NavigationLink>({
       name: 'navigacija',
       icon: 'nav',
