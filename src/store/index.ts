@@ -6,7 +6,7 @@ import {
   useStore as vuexUseStore,
 } from 'vuex';
 
-// import example from './module-example'
+// import GlobalStoreDecorators from './global-store'
 // import { ExampleStateInterface } from './module-example/state';
 
 /*
@@ -39,7 +39,7 @@ export const storeKey: InjectionKey<VuexStore<StateInterface>> =
 export default store(function (/* { ssrContext } */) {
   const Store = createStore<StateInterface>({
     modules: {
-      // example
+ //     GlobalStore: GlobalStoreDecorators
     },
 
     // enable strict mode (adds overhead!)
