@@ -40,7 +40,7 @@
 <script lang="ts">
 // import EssentialLink from 'components/EssentialLink.vue';
 
-const linksList = [
+/*const linksList = [
   {
     title: 'Docs',
     caption: 'quasar.dev',
@@ -83,7 +83,7 @@ const linksList = [
     icon: 'favorite',
     link: 'https://awesome.quasar.dev',
   },
-];
+];*/
 
 import { defineComponent, ref } from 'vue';
 import {NavigationLink} from 'components/models';
@@ -111,6 +111,11 @@ export default defineComponent({
         routeTo: '/table'
       },
       {
+        name: 'debug class',
+        icon: 'note',
+        routeTo: '/debug-class'
+      },
+      {
         name: 'Debug',
         icon: 'adb',
         routeTo: '/debug'
@@ -120,7 +125,7 @@ export default defineComponent({
     const leftDrawerOpen = ref(false);
 
     return {
-      essentialLinks: linksList,
+      // essentialLinks: linksList,
       navigationLinks,
       leftDrawerOpen,
       toggleLeftDrawer() {
