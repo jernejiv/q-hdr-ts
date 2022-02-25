@@ -5,6 +5,8 @@ import {
   Store as VuexStore,
   useStore as vuexUseStore,
 } from 'vuex';
+import globalModule, {GlobalStateInterface} from 'src/store/global-store';
+// import exampleModule from 'src/store/module-example';
 
 // import GlobalStoreDecorators from './global-store'
 // import { ExampleStateInterface } from './module-example/state';
@@ -20,9 +22,9 @@ import {
 
 export interface StateInterface {
   // Define your own store structure, using submodules if needed
-  // example: ExampleStateInterface;
+  example: GlobalStateInterface;
   // Declared as unknown to avoid linting issue. Best to strongly type as per the line above.
-  example: unknown;
+  //example: unknown;
 }
 
 // provide typings for `this.$store`
@@ -39,7 +41,7 @@ export const storeKey: InjectionKey<VuexStore<StateInterface>> =
 export default store(function (/* { ssrContext } */) {
   const Store = createStore<StateInterface>({
     modules: {
- //     GlobalStore: GlobalStoreDecorators
+      globalModule: globalModule
     },
 
     // enable strict mode (adds overhead!)

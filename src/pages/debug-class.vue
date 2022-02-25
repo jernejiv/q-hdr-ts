@@ -3,10 +3,12 @@
     HELLO debug class
     <q-space></q-space>
     {{ syncedTitle }}
+    <q-space></q-space>
+    {{ soreTitle }}
   </q-page>
 </template>
 
-<script>
+<script lang="ts">
 /*import { Component, Vue } from 'vue-property-decorator'
 
 @Component
@@ -15,6 +17,10 @@ export default class App extends Vue {
  title: string = 'From default defined string property'
  */
 // ekvivaletn
+// import  { useStore } from './global-store'
+// import  { useStore } from '../store/simple-store'
+import {useStore} from 'src/store';
+
 export default {
   // name: 'PageName',
   props: {
@@ -25,10 +31,24 @@ export default {
   },
   computed: {
     syncedTitle: {
-      get() {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-        return this.title
+      get(): string {
+        return 'this.title'
       }
+    }
+  },
+  setup() {
+    const myStore = useStore();
+    console.log(myStore);
+
+    //const str = this.$store.state['globalModule/title'] as string;
+
+
+    //let soreTitle = myStore.state['globalModule/title'] as string;
+    //console.log(soreTitle)
+
+    return {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      // soreTitle
     }
   }
 }
