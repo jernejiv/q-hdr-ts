@@ -17,14 +17,16 @@
   </q-page>
 </template>
 
-<script>
+<script lang="ts">
 import {api} from '../boot/axios';
+import {MyDevice} from '../components/types';
+import {defineComponent, ref} from 'vue';
 
-export default {
+export default defineComponent ({
   // name: 'PageName',
   data () {
-    return { deviceList: [],
-      // selectedDevice: ref([]),
+    return { deviceList: ref([{} as MyDevice]),
+      selectedDevice: ref([{} as MyDevice]),
       deviceTableColumns: [
         {
           label: 'deviceName', field: 'deviceName', name: 'deviceName', align: 'left'
@@ -38,7 +40,7 @@ export default {
       ]}
   },
   methods: {
-    loadData () {
+    loadData (): void {
       api.get('/device-repository', {
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -46,11 +48,9 @@ export default {
         }
       })
         .then((response) => {
-          // commit('loadDeviceDataMutation', response.data)
-          console.log(response.data)
           // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-          this.deviceList = response.data
-          // Object.assign(state.deviceList, response.data)
+          const result: MyDevice[] = response.data
+          this.deviceList = result
         })
         .catch((error) => {
           console.log('napaka')
@@ -62,5 +62,5 @@ export default {
   setup() {
     // const selectedDevice = ref([])
   }
-}
+})
 </script>
