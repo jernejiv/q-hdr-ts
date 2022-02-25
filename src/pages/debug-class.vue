@@ -37,13 +37,12 @@ export default {
     }
   },
   setup() {
-    const myStore = useStore();
-    console.log(myStore);
+    const $myStore = useStore();
+    console.log($myStore.state);
 
     //const str = this.$store.state['globalModule/title'] as string;
 
-
-    //let soreTitle = myStore.state['globalModule/title'] as string;
+    //const soreTitle = myStore.state.example.title;
     //console.log(soreTitle)
 
     return {

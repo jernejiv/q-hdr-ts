@@ -22,7 +22,7 @@ import globalModule, {GlobalStateInterface} from 'src/store/global-store';
 
 export interface StateInterface {
   // Define your own store structure, using submodules if needed
-  example: GlobalStateInterface;
+  globalState: GlobalStateInterface;
   // Declared as unknown to avoid linting issue. Best to strongly type as per the line above.
   //example: unknown;
 }
